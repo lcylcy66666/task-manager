@@ -21,75 +21,19 @@ MongoClient.connect(connectionURL, {useNewURLParser: true}, (error, client)=>{
 
     const db = client.db(databaseName)
 
-    // db.collection('users').findOne({_id:new ObjectId("62f11225b3e14a5f739e79fe")},(error, user)=>{
-    //     if(error){
-    //         return console.log('Unable to fetch')
-    //     }
+    // db.collection('users').deleteMany({
+    //     age:27
+    // }).then((result)=>{
+    //     console.log(result)
+    // }).catch((error))=>{
+    //     console.log(error)
+    // }
 
-    //     console.log(user)
-    // })
-
-    // db.collection('users').find({age:25}).toArray((error, users) =>{
-    //     console.log(users)
-    // })
-
-    // db.collection('users').countDocuments({age:25}, (error, count) =>{
-    //     console.log(count)
-    // })
-        db.collection('tasks').findOne({_id: new ObjectId("62f10ccab2db925a983f68bc")},(error, task)=>{
-            console.log(task)
-        })
-
-        db.collection('tasks').find({completed: false}).toArray((error, tasks)=>{
-            console.log(tasks)
-        })
-    // db.collection('users').insertOne({
-    //     _id: id,
-    //     name: 'Brian',
-    //     age: 25
-    // }, (error, result)=>{
-    //     if(error){
-    //         return console.log('Unable to insert user')
-    //     }
-
-    //     console.log(result.insertedId)
-    // })
-    
-    // db.collection('users').insertMany([
-    //     {
-    //         name:'Jen',
-    //         age:28
-    //     },{
-    //         name:' GIM',
-    //         age:29
-    //     }
-    // ],(error, result)=>{
-    //     if(error){
-    //         return console.log('Unable to insert documents!')
-    //     }
-
-    //     console.log(result.insertedIds)
-
-    // })
-
-    //challenge
-    // db.collection('tasks').insertMany([
-    //     {
-    //         description: 'Clean the house',
-    //         completed: true
-    //     },{
-    //         description: "Renwe inspection",
-    //         completed:false
-    //     },{
-    //         description: 'Pot plants',
-    //         completed:false
-    //     }
-    // ],(error, result)=>{
-    //     if(error){
-    //         return console.log("Unable to insert tasks")
-    //     }
-    //     console.log(result.insertedIds)
-    // })
-
-
+    db.collection('tasks').deleteOne({
+        _id: new ObjectId("62f10ccab2db925a983f68bb")
+    }).then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.log(error)
+    })
 })
