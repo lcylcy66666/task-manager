@@ -25,15 +25,3 @@ app.use(taskRouter)
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
-
-const jwt = require('jsonwebtoken')
-
-const myFuncrion = async () => {
-    const token = jwt.sign({ _id: 'abc123' }, 'thisismytest', { expiresIn: '1 second' })
-    console.log(token)
-
-    const data = jwt.verify(token, 'thisismytest')
-    console.log(data)
-}
-
-myFuncrion() 
